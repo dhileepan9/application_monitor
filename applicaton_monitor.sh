@@ -23,9 +23,9 @@ then
 else
 	DATE=$(date)
 	STOP_TIME=$(tail -n1 $PROC_LOG)
-    echo "${DATE}: ${PROC_NAME} was not found" >> $LOG
-    echo "${DATE}: Restarting the ${PROC_NAME} with ${PROC_CMD} ..." >> $LOG
-    /etc/init.d/$PROC_NAME start
+	echo "${DATE}: ${PROC_NAME} was not found" >> $LOG
+	echo "${DATE}: Restarting the ${PROC_NAME} with ${PROC_CMD} ..." >> $LOG
+	/etc/init.d/$PROC_NAME start
 	if (( $(ps -ef | grep -v grep | grep $PROC_NAME | wc -l) > 0 ))
 	then
 		STATUS="RUNNING"
